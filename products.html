@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Courses</title>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+ event:"page_view_custom",
+ page_name:"products",
+ ecommerce:{
+  impressions:[
+   {id:"C101",name:"GA4 Course",price:1500},
+   {id:"C102",name:"GTM Course",price:2000}
+  ]
+ }
+});
+</script>
+
+</head>
+
+<body>
+
+<h1>Courses</h1>
+
+<div onclick="selectItem('C101','GA4 Course',1500)">GA4 Course - ₹1500</div>
+<div onclick="selectItem('C102','GTM Course',2000)">GTM Course - ₹2000</div>
+
+<script>
+function selectItem(id,name,price){
+ dataLayer.push({
+   event:"select_item",
+   item_id:id,
+   item_name:name,
+   price:price
+ });
+ window.location="product-detail.html";
+}
+</script>
+
+</body>
+</html>
