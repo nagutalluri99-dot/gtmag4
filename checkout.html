@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+ event:"page_view_custom",
+ page_name:"checkout"
+});
+</script>
+
+</head>
+
+<body>
+
+<h1>Payment</h1>
+
+<button onclick="purchase()">Pay Now</button>
+
+<script>
+function purchase(){
+ dataLayer.push({
+  event:"purchase",
+  transaction_id:"TXN"+Date.now(),
+  revenue:1500,
+  tax:100,
+  shipping:50,
+  coupon:"WELCOME10",
+  currency:"INR",
+  items:[
+    {
+      item_id:"C101",
+      item_name:"GA4 Course",
+      price:1500,
+      quantity:1
+    }
+  ]
+ });
+ alert("Payment Successful!");
+}
+</script>
+
+</body>
+</html>
