@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+  event:"page_view_custom",
+  page_name:"contact"
+});
+</script>
+
+</head>
+
+<body>
+
+<h1>Contact Us</h1>
+
+<input id="name" placeholder="Name"><br>
+<input id="email" placeholder="Email"><br>
+<textarea id="msg" placeholder="Message"></textarea><br>
+
+<button onclick="submitForm()">Send</button>
+
+<script>
+function submitForm(){
+
+ let name = document.getElementById("name").value;
+
+ dataLayer.push({
+   event:"form_start",
+   form_name:"contact_form"
+ });
+
+ if(name === ""){
+   dataLayer.push({
+     event:"form_error",
+     error_field:"name",
+     error_type:"empty"
+   });
+   alert("Name required");
+   return;
+ }
+
+ dataLayer.push({
+   event:"form_submit",
+   form_name:"contact_form",
+   name:name,
+   email:document.getElementById("email").value,
+   message_length:document.getElementById("msg").value.length
+ });
+}
+</script>
+
+</body>
+</html>
