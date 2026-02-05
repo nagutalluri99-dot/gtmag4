@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About Us</title>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+  event: "page_view_custom",
+  page_name: "about",
+  page_category: "company_info"
+});
+</script>
+
+</head>
+
+<body style="height:3500px">
+
+<h1>About Our Analytics Academy</h1>
+
+<section id="mission">
+<h2>Mission</h2>
+<p>Hands-on analytics education.</p>
+</section>
+
+<section id="vision">
+<h2>Vision</h2>
+<p>Build analytics professionals.</p>
+</section>
+
+<section id="team">
+<h2>Team</h2>
+<p>Industry experts.</p>
+</section>
+
+<script>
+["mission","vision","team"].forEach(sec=>{
+ document.getElementById(sec).addEventListener("mouseenter",()=>{
+  dataLayer.push({
+    event:"section_engagement",
+    section_name:sec
+  });
+ });
+});
+
+window.addEventListener("scroll",()=>{
+ let scrolled = Math.round((window.scrollY / 3500) * 100);
+
+ dataLayer.push({
+   event:"scroll_depth",
+   scroll_percentage: scrolled
+ });
+});
+</script>
+
+</body>
+</html>
