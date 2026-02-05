@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Blog</title>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+  event:"page_view_custom",
+  page_name:"blog",
+  content_type:"articles"
+});
+</script>
+
+</head>
+
+<body>
+
+<h1>Analytics Articles</h1>
+
+<article onclick="blogOpen('GA4 Complete Guide')">
+<h2>GA4 Complete Guide</h2>
+<p>Learn GA4 end to end.</p>
+</article>
+
+<article onclick="blogOpen('GTM Best Practices')">
+<h2>GTM Best Practices</h2>
+<p>Advanced tagging strategies.</p>
+</article>
+
+<script>
+function blogOpen(title){
+ dataLayer.push({
+   event:"blog_open",
+   article_title:title,
+   author:"Analytics Team",
+   publish_year:2026
+ });
+}
+</script>
+
+</body>
+</html>
