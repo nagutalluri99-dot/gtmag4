@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Course Detail</title>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+ event:"page_view_custom",
+ page_name:"product_detail",
+ product_id:"C101",
+ product_name:"GA4 Course",
+ price:1500
+});
+</script>
+
+</head>
+
+<body>
+
+<h1>GA4 Course</h1>
+<p>Includes 20 modules + practice</p>
+
+<button onclick="addCart()">Add to Cart</button>
+
+<script>
+function addCart(){
+ dataLayer.push({
+  event:"add_to_cart",
+  item_id:"C101",
+  item_name:"GA4 Course",
+  price:1500,
+  quantity:1
+ });
+ window.location="cart.html";
+}
+</script>
+
+</body>
+</html>
