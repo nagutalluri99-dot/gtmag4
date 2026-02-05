@@ -1,67 +1,216 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>GA4 GTM Demo Home</title>
+<meta charset="UTF-8">
+<title>GA4 & GTM Demo Website - Home</title>
+
+<!-- =====================
+ PAGE LEVEL DATALAYER
+===================== -->
 
 <script>
 window.dataLayer = window.dataLayer || [];
 dataLayer.push({
   event: "page_view_custom",
   page_name: "home",
-  page_category: "landing",
-  user_id: "U1001",
-  user_type: "premium",
-  traffic_source: "google",
-  traffic_medium: "organic",
-  campaign: "analytics_training_2026"
+  page_category: "landing_page",
+  user: {
+    user_id: "U1001",
+    user_type: "premium",
+    login_status: "logged_in",
+    membership_level: "gold"
+  },
+  traffic: {
+    source: "google",
+    medium: "organic",
+    campaign: "ga4_training_2026"
+  },
+  device_info: {
+    browser: navigator.userAgent,
+    screen_width: screen.width,
+    screen_height: screen.height
+  }
 });
 </script>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+}
+section{
+  margin-bottom:40px;
+}
+.box{
+  border:1px solid #ccc;
+  padding:15px;
+  margin:10px 0;
+}
+button{
+  padding:8px 15px;
+  cursor:pointer;
+}
+.nav-hub{
+  border:3px solid #000;
+  padding:20px;
+  background:#f4f4f4;
+}
+</style>
 
 </head>
 
 <body>
 
-<h1>GA4 & GTM Practical Training Website</h1>
+<h1>GA4 & Google Tag Manager Practical Demo Website</h1>
+
+<p>
+This website is created to demonstrate real-world GA4 and GTM implementations such as:
+pageviews, clicks, scroll tracking, forms, ecommerce, content engagement and advanced dataLayer usage.
+</p>
+
+<hr>
+
+<!-- =====================
+ FEATURED COURSES
+===================== -->
 
 <section>
-<h2>Popular Courses</h2>
 
-<div>
+<h2>🎯 Featured Training Programs</h2>
+
+<div class="box">
 <h3>GA4 Fundamentals</h3>
-<p>Complete GA4 training with hands-on.</p>
+<p>Learn GA4 from scratch including events, reports and debugging.</p>
 <button onclick="promoClick('GA4 Fundamentals')">Enroll Now</button>
 </div>
 
-<div>
-<h3>Advanced GTM</h3>
-<p>Learn enterprise tagging.</p>
+<div class="box">
+<h3>Advanced Google Tag Manager</h3>
+<p>Enterprise-level tracking using dataLayer and custom events.</p>
 <button onclick="promoClick('Advanced GTM')">Enroll Now</button>
 </div>
+
 </section>
 
-<nav>
-<a href="about.html" onclick="nav('about')">About</a> |
-<a href="blog.html" onclick="nav('blog')">Blog</a> |
-<a href="products.html" onclick="nav('products')">Courses</a> |
-<a href="contact.html" onclick="nav('contact')">Contact</a>
-</nav>
+<!-- =====================
+ WHY THIS DEMO SITE
+===================== -->
+
+<section>
+
+<h2>📘 What You Will Learn Here</h2>
+
+<ul>
+<li>How GA4 pageviews work</li>
+<li>Click tracking using GTM</li>
+<li>Form tracking and validation errors</li>
+<li>Scroll depth measurement</li>
+<li>Content engagement tracking</li>
+<li>Complete ecommerce funnel</li>
+<li>Advanced dataLayer structure</li>
+</ul>
+
+</section>
+
+<!-- =====================
+ NAVIGATION HUB
+===================== -->
+
+<section class="nav-hub">
+
+<h2>📌 GA4 & GTM Demo Navigation Hub</h2>
+<p>Use these links to navigate to different demo pages while teaching implementation.</p>
+
+<hr>
+
+<h3>📄 Basic & Engagement Pages</h3>
+
+<ul>
+<li><a href="index.html" onclick="navHub('home')">Home Page</a></li>
+<li><a href="about.html" onclick="navHub('about')">About Page (Scroll + Sections)</a></li>
+<li><a href="blog.html" onclick="navHub('blog')">Blog Page (Content Tracking)</a></li>
+<li><a href="search.html" onclick="navHub('search')">Search Page</a></li>
+<li><a href="contact.html" onclick="navHub('contact')">Contact Page (Forms)</a></li>
+</ul>
+
+<hr>
+
+<h3>🛒 Ecommerce Funnel Pages</h3>
+
+<ul>
+<li><a href="products.html" onclick="navHub('products')">Product Listing Page</a></li>
+<li><a href="product-detail.html" onclick="navHub('product_detail')">Product Detail Page</a></li>
+<li><a href="cart.html" onclick="navHub('cart')">Cart Page</a></li>
+<li><a href="checkout.html" onclick="navHub('checkout')">Checkout Page</a></li>
+</ul>
+
+<hr>
+
+<h3>📍 Section Jump (Anchor Navigation)</h3>
+
+<ul>
+<li><a href="about.html#mission" onclick="navHub('about_mission')">About - Mission Section</a></li>
+<li><a href="about.html#vision" onclick="navHub('about_vision')">About - Vision Section</a></li>
+<li><a href="about.html#team" onclick="navHub('about_team')">About - Team Section</a></li>
+</ul>
+
+</section>
+
+<!-- =====================
+ EXTRA CLICK DEMOS
+===================== -->
+
+<section>
+
+<h2>🧪 Click Tracking Practice Area</h2>
+
+<button onclick="genericClick('download_brochure')">Download Brochure</button>
+<button onclick="genericClick('watch_demo_video')">Watch Demo Video</button>
+<button onclick="genericClick('subscribe_newsletter')">Subscribe Newsletter</button>
+
+</section>
+
+<!-- =====================
+ JAVASCRIPT EVENTS
+===================== -->
 
 <script>
-function promoClick(name){
- dataLayer.push({
-   event: "promotion_click",
-   promotion_name: name,
-   position: "homepage_feature"
- });
+
+function promoClick(courseName){
+  dataLayer.push({
+    event: "promotion_click",
+    promotion_name: courseName,
+    promotion_location: "homepage_featured_section",
+    timestamp: new Date().toISOString()
+  });
 }
 
-function nav(page){
- dataLayer.push({
-   event: "navigation_click",
-   destination_page: page
- });
+function navHub(destination){
+  dataLayer.push({
+    event: "navigation_hub_click",
+    navigation_source: "home_navigation_hub",
+    destination_page: destination,
+    click_time: new Date().toISOString()
+  });
 }
+
+function genericClick(action){
+  dataLayer.push({
+    event: "custom_click",
+    click_action: action,
+    page: "home"
+  });
+}
+
 </script>
+
+<hr>
+
+<footer>
+<p>GA4 & GTM Training Demo Website © 2026</p>
+</footer>
 
 </body>
 </html>
+
