@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+ event:"page_view_custom",
+ page_name:"cart",
+ cart_value:1500
+});
+</script>
+
+</head>
+
+<body>
+
+<h1>Your Cart</h1>
+
+<button onclick="removeItem()">Remove</button>
+<button onclick="checkout()">Checkout</button>
+
+<script>
+function removeItem(){
+ dataLayer.push({
+  event:"remove_from_cart",
+  item_id:"C101"
+ });
+}
+
+function checkout(){
+ dataLayer.push({
+  event:"begin_checkout",
+  total_value:1500
+ });
+ window.location="checkout.html";
+}
+</script>
+
+</body>
+</html>
